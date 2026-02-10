@@ -156,7 +156,7 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Award, title: "Top Results", desc: "92% success rate with multiple All India Rankers across exams" },
-              { icon: Users, title: "Expert Faculty", desc: "75+ experienced educators including IIT/IAS alumni and industry professionals" },
+              { icon: Users, title: "Expert Faculty", desc: "20+ experienced educators including IIT/IAS alumni and industry professionals" },
               { icon: BookOpen, title: "Comprehensive Material", desc: "In-house study material, test series, and digital learning resources" },
               { icon: Shield, title: "Proven Methodology", desc: "Structured approach with regular assessments and personalized mentorship" },
               { icon: Target, title: "Small Batch Sizes", desc: "Limited intake ensures individual attention and doubt-clearing sessions" },

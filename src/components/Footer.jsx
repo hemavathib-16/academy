@@ -63,11 +63,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex gap-3 text-sm text-primary-foreground/70">
                 <MapPin size={18} className="text-gold shrink-0 mt-0.5" />
-                <span>#42, 2nd Floor, Jayanagar 4th Block, Bangalore – 560041</span>
+                <span>BMS College of Engineering Campus, Bull Temple Rd, Basavanagudi, Bengaluru, Karnataka 560004</span>
               </li>
               <li className="flex gap-3 text-sm text-primary-foreground/70">
                 <Phone size={18} className="text-gold shrink-0" />
-                <span>+91 80 1234 5678</span>
+                <span>+91 8971736008</span>
               </li>
               <li className="flex gap-3 text-sm text-primary-foreground/70">
                 <Mail size={18} className="text-gold shrink-0" />

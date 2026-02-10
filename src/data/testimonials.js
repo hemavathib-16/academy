@@ -51,8 +51,8 @@ export const testimonials = [
 ];
 
 export const stats = [
-  { label: "Students Trained", value: "15,000+", suffix: "" },
+  { label: "Students Trained", value: "2,000+", suffix: "" },
   { label: "Years of Excellence", value: "18+", suffix: "" },
   { label: "Success Rate", value: "92", suffix: "%" },
-  { label: "Expert Faculty", value: "75+", suffix: "" },
+  { label: "Expert Faculty", value: "20+", suffix: "" },
 ];

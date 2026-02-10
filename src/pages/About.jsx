@@ -6,12 +6,12 @@ import libraryImg from "@/assets/library.jpg";
 import chairman from "@/assets/chairman.png";
 
 const timeline = [
-  { year: "2008", title: "Founded", desc: "BMS Academy established in Jayanagar, Bangalore" },
+  { year: "2008", title: "Founded", desc: "BMS Academy established in BMS College Of Engineering, Bangalore" },
   { year: "2011", title: "Commerce Wing", desc: "Launched CA, CS & CMA coaching programs" },
   { year: "2014", title: "Science Division", desc: "Added IIT-JEE and NEET preparation" },
   { year: "2017", title: "Campus Expansion", desc: "Moved to a larger campus with modern facilities" },
   { year: "2020", title: "Digital Learning", desc: "Launched online and hybrid learning programs" },
-  { year: "2024", title: "15,000 Alumni", desc: "Crossed 15,000+ successful students milestone" },
+  { year: "2024", title: "2,000 Alumni", desc: "Crossed 2,000+ successful students milestone" },
 ];
 
 const About = () => {
@@ -37,11 +37,11 @@ const About = () => {
               BMS Academy for Professional Courses was founded in 2008 with a singular mission — to provide world-class coaching for competitive examinations in Bangalore. What started as a small coaching centre for Civil Services aspirants has grown into one of South India's most respected multi-disciplinary coaching institutes.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Today, we offer comprehensive programs across Civil Services, Commerce (CA/CS/CMA), and Science (IIT-JEE/NEET/KCET) streams, serving over 2,000 students annually with a team of 75+ experienced faculty members.
+              Today, we offer comprehensive programs across Civil Services, Commerce (CA/CS/CMA), and Science (IIT-JEE/NEET/KCET) streams, serving over 2,000 students annually with a team of  75+ experienced faculty members.
             </p>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Users, val: "15,000+", label: "Alumni Network" },
+                { icon: Users, val: "2,000+", label: "Alumni Network" },
                 { icon: Award, val: "92%", label: "Success Rate" },
                 { icon: BookOpen, val: "12+", label: "Programs" },
                 { icon: Calendar, val: "18+", label: "Years" },
@@ -74,7 +74,8 @@ const About = () => {
             </motion.div>
           ))}
         </div>
-      </section>
+      </section> 
+      
 
       {/* Founder's Message */}
       <section className="section-padding bg-background">
