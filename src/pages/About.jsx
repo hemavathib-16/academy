@@ -74,8 +74,7 @@ const About = () => {
             </motion.div>
           ))}
         </div>
-      </section> 
-      
+      </section>
 
       {/* Founder's Message */}
       <section className="section-padding bg-background">
