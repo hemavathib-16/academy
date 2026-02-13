@@ -12,10 +12,10 @@ const Contact = () => {
     toast.success("Thank you! We'll get back to you within 24 hours.");
     setForm({ name: "", email: "", phone: "", course: "", message: "" });
   };
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setForm(prev => ({ ...prev, [name]: value }));
-};
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  };
   return (
     <div>
       <section className="gradient-hero py-20 lg:py-28">
@@ -90,8 +90,8 @@ const handleInputChange = (e) => {
                 <h3 className="font-display text-lg font-bold text-foreground mb-5">Contact Information</h3>
                 <div className="space-y-4">
                   {[
-                    { icon: MapPin, title: "Address", text: "#42, 2nd Floor, Jayanagar 4th Block, Bangalore – 560041, Karnataka" },
-                    { icon: Phone, title: "Phone", text: "+91 80 1234 5678 / +91 98765 43210" },
+                    { icon: MapPin, title: "Address", text: "Admission Office BMS ACADEMY FOR PROFESSIONAL COURSES, BMS Engineering campus, Bull Temple Road, Basavanagudi, Bengaluru - 560019, Karnataka" },
+                    { icon: Phone, title: "Phone", text: "+91 9036510011/ +91 8971736008/ +91 8029909656" },
                     { icon: Mail, title: "Email", text: "info@bmsacademy.in / admissions@bmsacademy.in" },
                     { icon: Clock, title: "Office Hours", text: "Mon – Sat: 8 AM – 8 PM | Sun: 9 AM – 1 PM" },
                   ].map(({ icon: Icon, title, text }) => (

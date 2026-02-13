@@ -2,8 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Monitor, BookOpen, Wifi, Library, X } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import classroomImg from "@/assets/classroom.jpg";
-import libraryImg from "@/assets/library.jpg";
+import classroomImg from "@/assets/eng.jpg";
+import libraryImg from "@/assets/libraryy.jpg";
 import building from "@/assets/building.jpg";
 
 const facilities = [

@@ -1,18 +1,12 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Award, Users, BookOpen, Calendar } from "lucide-react";
+import { Target, Eye, Award, Users, BookOpen, Calendar, Zap } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import { Link } from "react-router-dom";
 import StatsSection from "@/components/StatsSection";
-import libraryImg from "@/assets/library.jpg";
-import chairman from "@/assets/chairman.png";
-
-const timeline = [
-  { year: "2008", title: "Founded", desc: "BMS Academy established in BMS College Of Engineering, Bangalore" },
-  { year: "2011", title: "Commerce Wing", desc: "Launched CA, CS & CMA coaching programs" },
-  { year: "2014", title: "Science Division", desc: "Added IIT-JEE and NEET preparation" },
-  { year: "2017", title: "Campus Expansion", desc: "Moved to a larger campus with modern facilities" },
-  { year: "2020", title: "Digital Learning", desc: "Launched online and hybrid learning programs" },
-  { year: "2024", title: "2,000 Alumni", desc: "Crossed 2,000+ successful students milestone" },
-];
+import libraryImg from "@/assets/libraryy.jpg";
+import Director from "@/assets/principal.jpg";
+import founderPlaceholder from "@/assets/founder-placeholder.jpg";
+import trusteePlaceholder from "@/assets/trustee-placeholder.jpg";
 
 const About = () => {
   return (
@@ -23,8 +17,35 @@ const About = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-gold/20 text-gold text-sm font-semibold mb-4">About Us</span>
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-primary-foreground mb-4">About BMS Academy</h1>
-            <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">Shaping futures through excellence in professional education since 2008</p>
+            <p className="text-lg text-primary-foreground/70 max-w-2xl mx-auto">Shaping futures through excellence in professional education</p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Founder & Trustee (placeholders) */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="grid sm:grid-cols-2 gap-6 items-start">
+            <div className="bg-card rounded-xl p-4 card-shadow border border-border/50 flex items-center gap-4">
+              <div className="w-24 h-24 rounded-xl bg-primary overflow-hidden flex-shrink-0">
+                <img src={founderPlaceholder} alt="Founder placeholder" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <div className="font-display text-lg font-semibold text-foreground">Founder</div>
+                <div className="text-sm text-muted-foreground">Add founder's image: replace src/assets/founder-placeholder.jpg</div>
+              </div>
+            </div>
+
+            <div className="bg-card rounded-xl p-4 card-shadow border border-border/50 flex items-center gap-4">
+              <div className="w-24 h-24 rounded-xl bg-primary overflow-hidden flex-shrink-0">
+                <img src={trusteePlaceholder} alt="Trustee placeholder" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <div className="font-display text-lg font-semibold text-foreground">Trustee</div>
+                <div className="text-sm text-muted-foreground">Add trustee's image: replace src/assets/</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -34,7 +55,7 @@ const About = () => {
           <div>
             <SectionHeading badge="Our Story" title="A Legacy of Transforming Aspirations" centered={false} />
             <p className="text-muted-foreground leading-relaxed mb-4">
-              BMS Academy for Professional Courses was founded in 2008 with a singular mission — to provide world-class coaching for competitive examinations in Bangalore. What started as a small coaching centre for Civil Services aspirants has grown into one of South India's most respected multi-disciplinary coaching institutes.
+              BMS College of Engineering is the 1st private sector engineering college in India which was started in the year 1946 by the Founder Late Sri. B.M. Sreenivasaiah. Thereafter, his illustrious son Late Sri B.S. Narayan formed BMS Educational Trust which has established several prestigious educational institutions in the city of Bengaluru. At present more than 20,000 students are pursuing different courses in BMS Institutions. BMS Academy has been established under the guidance and leadership of Dr. B.S. Ragini Narayan, Donor Trustee, Member Secretary and Chairperson of BMS Educational Trust , Dr. P. Dayananda Pai, Life Trustee, BMS Educational Trust and Sri. Aviram Sharma, Trustee BMS Educational Trust.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Today, we offer comprehensive programs across Civil Services, Commerce (CA/CS/CMA), and Science (IIT-JEE/NEET/KCET) streams, serving over 2,000 students annually with a team of  75+ experienced faculty members.
@@ -43,8 +64,8 @@ const About = () => {
               {[
                 { icon: Users, val: "2,000+", label: "Alumni Network" },
                 { icon: Award, val: "92%", label: "Success Rate" },
-                { icon: BookOpen, val: "12+", label: "Programs" },
-                { icon: Calendar, val: "18+", label: "Years" },
+                { icon: BookOpen, val: "15+", label: "Programs", path: "/courses" },
+                { icon: Calendar, val: "3+", label: "Years" },
               ].map(({ icon: Icon, val, label }) => (
                 <div key={label} className="bg-secondary rounded-xl p-4 text-center">
                   <Icon className="mx-auto text-gold-dark mb-2" size={24} />
@@ -54,7 +75,11 @@ const About = () => {
               ))}
             </div>
           </div>
-          <img src={libraryImg} alt="BMS Academy" className="rounded-2xl card-shadow" />
+          <img
+            src={libraryImg}
+            alt="library"
+            className="w-full h-96 md:h-[520px] lg:h-[640px] object-contain bg-card rounded-2xl card-shadow"
+          />
         </div>
       </section>
 
@@ -76,25 +101,62 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder's Message */}
+      {/* Board of Governors */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <SectionHeading badge="Members" title="Board of Members" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { name: "Dr. P. Dayananda Pai", role: "Life Trustee, BMSET", position: "Chairman" },
+              { name: "Dr. B. S. Ragini Narayan", role: "DTMS & Chairperson, BMSET", position: "Member" },
+              { name: "Sri. Aviram Sharma", role: "Trustee BMSET", position: "Member" },
+              { name: "Prof. Pankaj Choudhary", role: "Principal, BMSCCM", position: "Member Secretary" },
+              { name: "Dr. C. S. Kedar", role: "IAS (Retd.), Former Addl. Chief Secretary, GOK", position: "Member" },
+              { name: "Sri. Srinivasa", role: "P. C., CEO, India 4 IAS", position: "Member" },
+              { name: "Dr. S. Muralidhara", role: "Principal, BMSCE", position: "Member" },
+              { name: "Wg. Cdr. R. A. Raghavan", role: "Director (Admin), BMSET", position: "Member" },
+            ].map((member, i) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="bg-gradient-to-br from-card to-card/50 rounded-xl p-5 border border-gold/5 hover:border-gold/15 text-center transition-all duration-300 hover:shadow-md"
+              >
+                <div className="w-20 h-20 rounded-full bg-gold/8 flex items-center justify-center mx-auto mb-3 border-2 border-gold/15">
+                  <Users className="text-gold-dark/70" size={36} />
+                </div>
+                <h4 className="font-display text-sm font-semibold text-foreground mb-1">{member.name}</h4>
+                <p className="text-xs text-gold-dark/80 font-medium mb-2 leading-tight">{member.role}</p>
+                <div className="inline-block px-2.5 py-1 rounded-full bg-gold/8 border border-gold/10 text-xs font-medium text-gold-dark/70">
+                  {member.position}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Director's Message */}
       <section className="section-padding bg-background">
         <div className="container-custom max-w-4xl">
-          <SectionHeading badge="Leadership" title="Chairman's Message" />
+          <SectionHeading badge="Leadership" title="Director's Message" />
           <div className="bg-card rounded-xl p-8 lg:p-12 card-shadow border border-border/50">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-24 h-24 rounded-xl bg-primary flex items-center justify-center shrink-0">
-              <img src={chairman} alt="Dr. B. M. Srinivas" className="w-full h-full object-cover rounded-xl" />
-            </div>
+                <img src={Director} alt="Dr. Pankaj Choudhary" className="w-full h-full object-cover rounded-xl" />
+              </div>
               <div>
                 <p className="text-muted-foreground leading-relaxed italic mb-4">
-                  "When we founded BMS Academy in 2008, our dream was simple — create an institution where students receive not just coaching, but true mentorship. Over the years, watching our students crack UPSC, top CA examinations, and secure seats in premier engineering and medical colleges has been our greatest reward."
+                  "When we founded BMS Academy, our dream was simple — create an institution where students receive not just coaching, but true mentorship. Over the years, watching our students crack UPSC, top CA examinations, and secure seats in premier engineering and medical colleges has been our greatest reward."
                 </p>
                 <p className="text-muted-foreground leading-relaxed italic mb-6">
                   "Education is the most powerful tool to transform lives, and at BMS Academy, we remain committed to making world-class coaching accessible to every deserving student in Bangalore and beyond."
                 </p>
                 <div>
-                  <p className="font-display text-lg font-semibold text-foreground">Dr. B. M. Srinivas</p>
-                  <p className="text-sm text-muted-foreground">Founder & Chairman, BMS Academy</p>
+                  <p className="font-display text-lg font-semibold text-foreground">Dr. Pankaj Choudhary</p>
+                  <p className="text-sm text-muted-foreground">Director, BMS Academy</p>
                 </div>
               </div>
             </div>
@@ -102,29 +164,85 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="section-padding bg-secondary/50">
-        <div className="container-custom max-w-4xl">
-          <SectionHeading badge="Journey" title="Years of Excellence" />
-          <div className="relative">
-            <div className="absolute left-[22px] md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-px" />
-            {timeline.map((item, i) => (
+      {/* Core Values - Enhanced UI */}
+      <section className="section-padding relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 bg-secondary/30 -z-20"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl -z-10 -translate-x-1/3 translate-y-1/3"></div>
+
+        <div className="container-custom">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <span className="inline-block px-4 py-1.5 rounded-full bg-gold/10 text-gold-dark text-sm font-semibold mb-4 border border-gold/20">Our Foundation</span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-6">Core Values — The 4 E's</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                The 4 E's form the bedrock of our educational philosophy. These principles guide our curriculum, pedagogy, and student support, preparing graduates for both professional excellence and civic responsibility.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                letter: "E",
+                title: "Education",
+                desc: "High-quality, values-based teaching that builds knowledge, critical thinking and ethical foundations.",
+                icon: BookOpen,
+                color: "from-blue-500/20 to-cyan-500/20",
+                iconColor: "text-blue-600"
+              },
+              {
+                letter: "E",
+                title: "Excellence",
+                desc: "Continuous improvement in pedagogy and outcomes — excellence as a practice, not a destination.",
+                icon: Award,
+                color: "from-purple-500/20 to-pink-500/20",
+                iconColor: "text-purple-600"
+              },
+              {
+                letter: "E",
+                title: "Entrepreneurship",
+                desc: "Fostering initiative, problem-solving and accountability so students become change agents.",
+                icon: Zap,
+                color: "from-amber-500/20 to-orange-500/20",
+                iconColor: "text-amber-600"
+              },
+              {
+                letter: "E",
+                title: "Empowerment",
+                desc: "Bridging knowledge gaps, building confidence and ensuring access to resources for student success.",
+                icon: Users,
+                color: "from-emerald-500/20 to-green-500/20",
+                iconColor: "text-emerald-600"
+              },
+            ].map((item, i) => (
               <motion.div
-                key={item.year}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`relative flex items-start gap-6 mb-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                whileHover={{ y: -10, transition: { duration: 0.2 } }}
+                className="group relative bg-card rounded-2xl p-6 card-shadow border border-border/50 overflow-hidden h-full flex flex-col"
               >
-                <div className="hidden md:block flex-1" />
-                <div className="w-11 h-11 rounded-full bg-gold flex items-center justify-center shrink-0 z-10 relative">
-                  <span className="text-xs font-bold text-accent-foreground">{item.year.slice(2)}</span>
-                </div>
-                <div className="flex-1 bg-card rounded-xl p-5 card-shadow border border-border/50">
-                  <span className="text-xs font-semibold text-gold-dark">{item.year}</span>
-                  <h4 className="font-display text-lg font-semibold text-foreground">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                {/* Hover Gradient Overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className={`w-14 h-14 rounded-xl bg-background flex items-center justify-center shadow-sm border border-border/50 group-hover:scale-110 transition-transform duration-300 ${item.iconColor}`}>
+                      <item.icon size={28} />
+                    </div>
+                    <span className="font-display text-6xl font-black text-foreground/5 select-none absolute right-0 -top-2 scale-150 group-hover:scale-125 transition-transform duration-500">
+                      {item.letter}
+                    </span>
+                  </div>
+
+                  <h3 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm mb-4 flex-grow">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}

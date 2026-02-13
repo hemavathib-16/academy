@@ -7,9 +7,9 @@ import CourseCard from "@/components/CourseCard";
 import SectionHeading from "@/components/SectionHeading";
 import StatsSection from "@/components/StatsSection";
 import TestimonialSlider from "@/components/TestimonialSlider";
-import classroomImg from "@/assets/classroom.jpg";
-import libraryImg from "@/assets/library.jpg";
-import bg from "@/assets/bg.png";
+import classroomImg from "@/assets/eng.jpg";
+import libraryImg from "@/assets/eng.jpg";
+import bg from "@/assets/bg.jpg";
 const Index = () => {
   return (
     <div>
@@ -27,14 +27,14 @@ const Index = () => {
             className="max-w-3xl"
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-gold/20 text-gold text-sm font-semibold mb-6">
-              Bangalore's Premier Coaching Academy
+              BMS Professional Coaching Academy
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
               Shape Your Future with{" "}
               <span className="text-gradient-gold">BMS Academy</span>
             </h1>
             <p className="text-lg sm:text-xl text-primary-foreground/80 mb-10 max-w-2xl leading-relaxed">
-              Expert coaching for UPSC, CA, IIT-JEE, NEET & more. Join 15,000+ successful students who chose excellence.
+              Expert coaching for UPSC, CA, IIT-JEE, NEET & more.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -72,7 +72,7 @@ const Index = () => {
             >
               <SectionHeading badge="About Us" title="A Legacy of Academic Excellence" centered={false} />
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Established in 2008, BMS Academy for Professional Courses has been Bangalore's trusted name in competitive exam coaching. We combine experienced faculty, proven methodologies, and a nurturing environment to help aspirants achieve their dreams.
+                Established in 2023, BMS Academy for Professional Courses has been Bangalore's trusted name in competitive exam coaching. We combine experienced faculty, proven methodologies, and a nurturing environment to help aspirants achieve their dreams.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
@@ -102,7 +102,7 @@ const Index = () => {
             >
               <img src={classroomImg} alt="BMS Academy Classroom" className="rounded-2xl card-shadow w-full" />
               <div className="absolute -bottom-6 -left-6 bg-card rounded-xl p-5 card-shadow border border-border">
-                <div className="font-display text-3xl font-bold text-gold">18+</div>
+                <div className="font-display text-3xl font-bold text-gold">4+</div>
                 <p className="text-sm text-muted-foreground">Years of Excellence</p>
               </div>
             </motion.div>

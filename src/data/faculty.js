@@ -1,18 +1,28 @@
 
 
 export const faculty = [
-  { id: 1, name: "Dr. Ramesh Kumar", expertise: "General Studies & Public Administration", experience: "20+ years", category: "civil", qualification: "Ph.D. in Political Science, Former IAS Officer" },
-  { id: 2, name: "Prof. Sunita Rao", expertise: "Indian History & Culture", experience: "15+ years", category: "civil", qualification: "M.A., NET Qualified, Author of 5 books" },
-  { id: 3, name: "Mr. Arvind Hegde", expertise: "Current Affairs & International Relations", experience: "12+ years", category: "civil", qualification: "M.A. in IR, Journalist turned Educator" },
-  { id: 4, name: "CA Pradeep Jain", expertise: "Accounting & Financial Management", experience: "18+ years", category: "commerce", qualification: "CA, CMA, M.Com, All India Ranker" },
-  { id: 5, name: "CA Neha Agarwal", expertise: "Taxation & Auditing", experience: "14+ years", category: "commerce", qualification: "CA, LL.B, DISA" },
-  { id: 6, name: "CS Meera Iyer", expertise: "Company Law & Governance", experience: "10+ years", category: "commerce", qualification: "CS, LL.M, Corporate Governance Expert" },
-  { id: 7, name: "Dr. Suresh Patil", expertise: "Physics (IIT-JEE & NEET)", experience: "16+ years", category: "science", qualification: "Ph.D. in Physics, IIT Bombay Alumni" },
-  { id: 8, name: "Prof. Lakshmi Devi", expertise: "Chemistry", experience: "13+ years", category: "science", qualification: "M.Sc., NET Qualified, 500+ IIT selections" },
-  { id: 9, name: "Mr. Vijay Anand", expertise: "Mathematics (JEE Advanced)", experience: "15+ years", category: "science", qualification: "M.Sc. Mathematics, IIT Madras Alumni" },
-  { id: 10, name: "Dr. Kavitha Murthy", expertise: "Biology (NEET)", experience: "12+ years", category: "science", qualification: "MBBS, MD, Medical Entrance Specialist" },
-  { id: 11, name: "Prof. Anil Shetty", expertise: "Economics & Indian Economy", experience: "17+ years", category: "civil", qualification: "M.A., Ph.D. in Economics" },
-  { id: 12, name: "CMA Rajesh Verma", expertise: "Cost & Management Accounting", experience: "11+ years", category: "commerce", qualification: "CMA, MBA Finance" },
+  // CA FOUNDATION COURSE
+  { id: 1, name: "Balaji N", expertise: "Accounts & Taxation", experience: "10+ years", category: "commerce", qualification: "CA" },
+  { id: 2, name: "Tareque Laskar", expertise: "Accounts", experience: "8+ years", category: "commerce", qualification: "MBA" },
+  { id: 3, name: "Dr Kesav Rao", expertise: "Financial Management", experience: "12+ years", category: "commerce", qualification: "PhD, CS, MBA" },
+  { id: 4, name: "Dhanush Gangawani", expertise: "Corporate Law", experience: "9+ years", category: "commerce", qualification: "CA" },
+  { id: 5, name: "Subhadra Aithal", expertise: "Auditing & Compliance", experience: "7+ years", category: "commerce", qualification: "CA" },
+  { id: 6, name: "Prof Srinath Sethuraman", expertise: "Management Accounting", experience: "11+ years", category: "commerce", qualification: "MBA London" },
+  { id: 7, name: "Vikas Kulkarni", expertise: "Information Systems", experience: "8+ years", category: "commerce", qualification: "CS" },
+  { id: 8, name: "Rajesh", expertise: "Business Law", experience: "10+ years", category: "commerce", qualification: "CA, CS" },
+  { id: 9, name: "Suma", expertise: "Accounts", experience: "9+ years", category: "commerce", qualification: "CA" },
+  
+  // IAS REGULAR AND FOUNDATION COURSES
+  { id: 10, name: "Mr M Abdul Kareem", expertise: "Art & Culture", experience: "25 years", category: "civil", qualification: "M.A. in History" },
+  { id: 11, name: "Mr Vilas Rathod", expertise: "Geography & Ecology", experience: "6 years", category: "civil", qualification: "B.E." },
+  { id: 12, name: "Mr G Srinivas", expertise: "Ethics, Integrity & Aptitude", experience: "6 years", category: "civil", qualification: "B.Sc. in Life Science" },
+  { id: 13, name: "Mr Prashanth", expertise: "Economy & Governance", experience: "6 years", category: "civil", qualification: "B.E. in Electronics & Communication" },
+  { id: 14, name: "Mr Nikhil Gowda", expertise: "Economics", experience: "5 years", category: "civil", qualification: "M.A. in Psychology" },
+  { id: 15, name: "Mr Akshara Damle", expertise: "Social Issues", experience: "5 years", category: "civil", qualification: "M.A. in Psychology" },
+  { id: 16, name: "Mr Shaheed Hashmi", expertise: "General Science & Technology", experience: "5 years", category: "civil", qualification: "B.E." },
+  { id: 17, name: "Mr Basavaraj", expertise: "Geography & CSAT", experience: "5 years", category: "civil", qualification: "B.E." },
+  { id: 18, name: "Mr Prashanth Shenoy", expertise: "General Science & Technology", experience: "5 years", category: "civil", qualification: "M.A.(Ed), MBA, CELTA(UK)" },
+  { id: 19, name: "Darshan Kumar C S", expertise: "CSAT - Quantitative Aptitude & Current Affairs", experience: "5 years", category: "civil", qualification: "B.E." },
 ];
 
 export const news = [

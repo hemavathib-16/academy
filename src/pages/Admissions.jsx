@@ -13,14 +13,14 @@ const steps = [
 ];
 
 const fees = [
-  { course: "UPSC (Full Course)", duration: "12-18 months", fee: "₹1,20,000" },
-  { course: "KPSC Coaching", duration: "10-12 months", fee: "₹80,000" },
-  { course: "CA Foundation", duration: "4 months", fee: "₹45,000" },
-  { course: "CA Inter", duration: "6-8 months", fee: "₹65,000" },
-  { course: "CA Final", duration: "6-8 months", fee: "₹75,000" },
-  { course: "IIT-JEE (2 Year)", duration: "24 months", fee: "₹1,50,000" },
-  { course: "NEET (1 Year)", duration: "12 months", fee: "₹1,00,000" },
-  { course: "KCET Coaching", duration: "6-12 months", fee: "₹60,000" },
+  { course: "UPSC (Full Course)", duration: "12-18 months" },
+  { course: "KPSC Coaching", duration: "10-12 months" },
+  { course: "CA Foundation", duration: "4 months" },
+  { course: "CA Inter", duration: "6-8 months" },
+  { course: "CA Final", duration: "6-8 months" },
+  { course: "IIT-JEE (2 Year)", duration: "24 months" },
+  { course: "NEET (1 Year)", duration: "12 months" },
+  { course: "KCET Coaching", duration: "6-12 months" },
 ];
 
 const faqs = [
@@ -64,10 +64,10 @@ const Admissions = () => {
         </div>
       </section>
 
-      {/* Fee Structure */}
+      {/* course duration*/}
       <section className="section-padding bg-secondary/50">
         <div className="container-custom max-w-4xl">
-          <SectionHeading badge="Fees" title="Fee Structure" subtitle="Transparent and competitive pricing for all programs" />
+          <SectionHeading badge="Course" title="Course Duration" subtitle="Transparent and competitive pricing for all programs" />
           <div className="bg-card rounded-xl card-shadow border border-border/50 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
@@ -75,7 +75,6 @@ const Admissions = () => {
                   <tr className="bg-primary text-primary-foreground">
                     <th className="text-left px-6 py-4 font-semibold">Course</th>
                     <th className="text-left px-6 py-4 font-semibold">Duration</th>
-                    <th className="text-left px-6 py-4 font-semibold">Fee</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -83,7 +82,6 @@ const Admissions = () => {
                     <tr key={f.course} className={i % 2 === 0 ? "bg-card" : "bg-secondary/30"}>
                       <td className="px-6 py-4 font-medium text-foreground">{f.course}</td>
                       <td className="px-6 py-4 text-muted-foreground">{f.duration}</td>
-                      <td className="px-6 py-4 font-semibold text-gold-dark">{f.fee}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -94,26 +92,55 @@ const Admissions = () => {
         </div>
       </section>
 
-      {/* Scholarships */}
+      {/* Admission Process & Fees */}
       <section className="section-padding bg-background">
-        <div className="container-custom max-w-4xl">
-          <SectionHeading badge="Financial Aid" title="Scholarships & Concessions" />
-          <div className="grid sm:grid-cols-2 gap-6">
-            {[
-              { title: "Merit Scholarship", desc: "Up to 100% fee waiver based on scholarship entrance test performance" },
-              { title: "Sibling Discount", desc: "10% discount for siblings already enrolled at BMS Academy" },
-              { title: "EWS Concession", desc: "Special fee concessions for students from economically weaker sections" },
-              { title: "Early Bird Offer", desc: "5% discount for enrollments completed before the deadline" },
-            ].map((s) => (
-              <div key={s.title} className="bg-card rounded-xl p-6 card-shadow border border-border/50 flex gap-4">
-                <CheckCircle2 className="text-gold-dark shrink-0 mt-0.5" size={20} />
-                <div>
-                  <h4 className="font-display font-semibold text-foreground mb-1">{s.title}</h4>
-                  <p className="text-sm text-muted-foreground">{s.desc}</p>
-                </div>
-              </div>
-            ))}
+        <div className="container-custom max-w-5xl">
+          <SectionHeading badge="Information" title="Admission & Fees" subtitle="Important details regarding your enrollment" />
+
+          {/* Admission Policy */}
+          <div className="bg-card rounded-xl border border-border/50 p-6 sm:p-8 card-shadow mb-8">
+            <h3 className="text-xl font-bold font-display text-foreground mb-4">Admissions</h3>
+            <p className="text-muted-foreground mb-4">
+              We have a simple and transparent admission process. To enrol in our courses, students need to meet the eligibility criteria and pay the course fee. We also offer scholarships to deserving students.
+            </p>
+            <p className="text-muted-foreground">
+              The students can visit the Campus and fill the application form for the course they would like to pursue.
+            </p>
           </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Schedule of Fees */}
+            <div className="bg-card rounded-xl border border-border/50 p-6 card-shadow flex flex-col h-full">
+              <h3 className="text-lg font-bold font-display text-foreground mb-3">SCHEDULE OF FEES</h3>
+              <div className="text-muted-foreground text-sm space-y-3 flex-grow">
+                <p>
+                  The schedule of fees for the courses offered at the academy and the charges for the service rendered at the institution will be notified at the appropriate time.
+                </p>
+                <p>
+                  The prescribed fees + GST in full shall be paid on or before the date specified in the fees structure issued along with selection letter.
+                </p>
+              </div>
+            </div>
+
+            {/* Mode of Payment */}
+            <div className="bg-card rounded-xl border border-border/50 p-6 card-shadow flex flex-col h-full">
+              <h3 className="text-lg font-bold font-display text-foreground mb-3">MODE OF PAYMENT</h3>
+              <div className="text-muted-foreground text-sm space-y-3 flex-grow">
+                <p>
+                  All fees are to be paid by Bank Draft payable at Bangalore in favour of <strong>BMS ACADEMY FOR PROFESSIONAL COURSES</strong>, payable at Bangalore. Cash will not be accepted.
+                </p>
+                <p>
+                  Students can also make NEFT/RTGS/ online Paytm transfers after collecting Bank details from the admission office.
+                </p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-border/50">
+                <p className="font-semibold text-destructive text-sm flex items-center gap-2">
+                  Fees once paid will not be refunded.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

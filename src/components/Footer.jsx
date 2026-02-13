@@ -12,7 +12,7 @@ const Footer = () => {
               <img src={logoImg} alt="BMS Academy" className="h-20 w-auto" />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              Bangalore's premier coaching academy for Civil Services, Commerce, and Science competitive examinations. Shaping careers since 2008.
+              BMS academy for Civil Services, Commerce, and Science competitive examinations. Shaping careers..
             </p>
             <div className="flex gap-3">
               {[Facebook, Instagram, Youtube, Linkedin].map((Icon, i) => (
@@ -47,10 +47,17 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg font-semibold mb-4">Our Programs</h4>
             <ul className="space-y-2.5">
-              {["UPSC Coaching", "CA / CS / CMA", "IIT-JEE Coaching", "NEET Coaching", "KPSC Coaching", "KCET Coaching"].map((item) => (
-                <li key={item}>
-                  <Link to="/courses" className="text-sm text-primary-foreground/70 hover:text-gold transition-colors">
-                    {item}
+              {[
+                { label: "UPSC Coaching", path: "/courses/upsc" },
+                { label: "CA / CS / CMA", path: "/courses/ca" },
+                { label: "IIT-JEE Coaching", path: "/courses/iit-jee" },
+                { label: "NEET Coaching", path: "/courses/neet" },
+                { label: "KPSC Coaching", path: "/courses/kpsc" },
+                { label: "KCET Coaching", path: "/courses/kcet" },
+              ].map((item) => (
+                <li key={item.path}>
+                  <Link to={item.path} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })} className="text-sm text-primary-foreground/70 hover:text-gold transition-colors">
+                    {item.label}
                   </Link>
                 </li>
               ))}
