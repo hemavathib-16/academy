@@ -14,47 +14,52 @@ const Index = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={bg} alt="BMS Academy Campus" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 gradient-hero opacity-85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent dark:from-background/95 dark:via-background/80" />
         </div>
-        <div className="relative container-custom py-20">
+        
+        {/* Decorative ambient blobs */}
+        <div className="absolute top-1/4 right-1/4 w-[40vw] h-[40vw] max-w-lg max-h-lg bg-gold/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen animate-pulse duration-1000"></div>
+        <div className="absolute bottom-0 right-0 w-[30vw] h-[30vw] max-w-md max-h-md bg-gold-dark/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+
+        <div className="relative container-custom py-20 z-10 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-gold/20 text-gold text-sm font-semibold mb-6">
+            <motion.span 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-block px-5 py-2 rounded-full border border-gold/30 bg-gold/10 backdrop-blur-md text-gold-light text-sm font-bold tracking-widest uppercase mb-6 shadow-[0_0_15px_rgba(235,186,81,0.2)]"
+            >
               BMS Professional Coaching Academy
-            </span>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
+            </motion.span>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 drop-shadow-lg">
               Shape Your Future with{" "}
-              <span className="text-gradient-gold">BMS Academy</span>
+              <span className="text-gold drop-shadow-md">BMS Academy</span>
             </h1>
-            <p className="text-lg sm:text-xl text-primary-foreground/80 mb-10 max-w-2xl leading-relaxed">
-              Expert coaching for UPSC, CA, IIT-JEE, NEET & more.
+            <p className="text-xl sm:text-2xl text-white/90 mb-10 max-w-2xl leading-relaxed drop-shadow-md font-medium">
+              Expert coaching for UPSC, CA, IIT-JEE, NEET & more. Unlock your true potential today.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5">
               <Link
                 to="/admissions"
-                className="inline-flex items-center gap-2 px-7 py-4 bg-gold text-accent-foreground rounded-xl font-semibold hover:bg-gold-dark transition-colors gold-shadow text-base"
+                className="group relative overflow-hidden inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-dark text-black rounded-xl font-bold hover:scale-105 transition-all outline-none ring-2 ring-gold/50 shadow-[0_0_20px_rgba(235,186,81,0.4)] text-lg"
               >
-                Apply Now <ArrowRight size={18} />
+                <span className="relative z-10 flex items-center gap-2">Apply Now <ArrowRight className="group-hover:translate-x-1 transition-transform" strokeWidth={2.5} size={20} /></span>
+                <div className="absolute inset-0 h-full w-full bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out"></div>
               </Link>
               <a
                 href="#"
-                className="inline-flex items-center gap-2 px-7 py-4 border-2 border-primary-foreground/30 text-primary-foreground rounded-xl font-semibold hover:bg-primary-foreground/10 transition-colors text-base"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-xl font-semibold hover:bg-white/20 transition-all text-lg shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
-                <Download size={18} /> Download Brochure
+                <Download size={20} className="group-hover:-translate-y-1 transition-transform" /> Download Brochure
               </a>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-7 py-4 border-2 border-primary-foreground/30 text-primary-foreground rounded-xl font-semibold hover:bg-primary-foreground/10 transition-colors text-base"
-              >
-                <Phone size={18} /> Book Free Counselling
-              </Link>
             </div>
           </motion.div>
         </div>
@@ -98,13 +103,9 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative"
+              className="relative w-full h-full flex items-center justify-center"
             >
-              <img src={classroomImg} alt="BMS Academy Classroom" className="rounded-2xl card-shadow w-full" />
-              <div className="absolute -bottom-6 -left-6 bg-card rounded-xl p-5 card-shadow border border-border">
-                <div className="font-display text-3xl font-bold text-gold">4+</div>
-                <p className="text-sm text-muted-foreground">Years of Excellence</p>
-              </div>
+              <img src={classroomImg} alt="BMS Academy Classroom" className="w-full max-h-[450px] object-cover rounded-2xl card-shadow aspect-auto" />
             </motion.div>
           </div>
         </div>
@@ -139,7 +140,7 @@ const Index = () => {
                     <h3 className="font-display text-xl font-bold text-foreground mb-3">{cat.title}</h3>
                     <p className="text-sm text-muted-foreground mb-4">{cat.description}</p>
                     <span className="inline-flex items-center gap-1 text-sm font-semibold text-gold-dark group-hover:gap-2 transition-all">
-                      Explore Courses <ArrowRight size={14} />
+                      Explore Courses <ArrowRight size={14} className="group-hover:translate-x-1" />
                     </span>
                   </Link>
                 </motion.div>
@@ -168,13 +169,15 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-xl p-6 card-shadow border border-border/50 hover-lift"
+                whileHover={{ y: -5 }}
+                className="bg-card rounded-2xl p-8 card-shadow border border-border/50 hover-lift relative overflow-hidden group"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center mb-4">
-                  <Icon className="text-primary" size={24} />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100px] z-0 transition-transform group-hover:scale-110"></div>
+                <div className="relative z-10 w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shadow-sm">
+                  <Icon className="text-primary group-hover:text-primary-foreground transition-colors" size={28} />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2">{title}</h3>
-                <p className="text-sm text-muted-foreground">{desc}</p>
+                <h3 className="font-display text-xl font-bold text-foreground mb-3 relative z-10">{title}</h3>
+                <p className="text-base text-muted-foreground leading-relaxed relative z-10">{desc}</p>
               </motion.div>
             ))}
           </div>
@@ -239,32 +242,41 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-24 sm:py-32 overflow-hidden mx-4 sm:mx-8 mb-8 rounded-[2rem]">
         <div className="absolute inset-0 gradient-hero" />
-        <div className="relative container-custom text-center">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/20 rounded-full blur-[80px]"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/30 rounded-full blur-[80px]"></div>
+        
+        <div className="relative container-custom text-center z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 text-gold-light text-sm font-bold tracking-widest uppercase mb-6">
+              Take The Next Step
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-md">
               Ready to Begin Your Journey?
             </h2>
-            <p className="text-lg text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-medium">
               Join BMS Academy and take the first step towards a successful career. Admissions are open for 2026-27 batches.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-6">
               <Link
                 to="/admissions"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-accent-foreground rounded-xl font-semibold hover:bg-gold-dark transition-colors gold-shadow text-base"
+                className="group relative overflow-hidden inline-flex items-center gap-2 px-8 py-4 bg-gold text-black rounded-xl font-bold shadow-[0_0_20px_rgba(235,186,81,0.3)] hover:scale-105 transition-all text-lg"
               >
-                Apply Now <ArrowRight size={18} />
+                <span className="relative z-10 flex items-center gap-2">Apply Now <ArrowRight strokeWidth={2.5} size={20} className="group-hover:translate-x-1 transition-transform" /></span>
+                <div className="absolute inset-0 w-full h-full bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></div>
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary-foreground/30 text-primary-foreground rounded-xl font-semibold hover:bg-primary-foreground/10 transition-colors text-base"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white rounded-xl font-semibold hover:bg-white/20 transition-all text-lg hover:-translate-y-1"
               >
-                <Phone size={18} /> Talk to Us
+                <Phone size={20} className="group-hover:animate-pulse" /> Talk to Us
               </Link>
             </div>
           </motion.div>

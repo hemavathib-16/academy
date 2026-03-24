@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, HelpCircle } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import AiAssistant from "@/components/AiAssistant";
+import { toast } from "sonner";
 
 const steps = [
   { step: "01", title: "Choose Your Course", desc: "Browse our programs and select the course that matches your career goals." },
@@ -23,16 +25,30 @@ const fees = [
   { course: "KCET Coaching", duration: "6-12 months" },
 ];
 
-const faqs = [
-  { q: "What documents are needed for admission?", a: "You'll need your academic mark sheets, ID proof (Aadhaar), passport-size photos, and a completed application form. For specific courses, additional documents may be required." },
-  { q: "Are there scholarships available?", a: "Yes! We offer merit-based scholarships (up to 100%) based on our scholarship entrance test. We also provide concessions for economically weaker sections and siblings studying at BMS." },
-  { q: "Can I switch between batches?", a: "Yes, batch switching is allowed within the first month, subject to availability. Please contact the academic office for the process." },
-  { q: "Do you offer online classes?", a: "Yes, most of our courses are available in both offline and online modes. Our online platform includes live classes, recorded lectures, and interactive doubt-clearing sessions." },
-  { q: "What is the refund policy?", a: "Full refund is available within 7 days of enrollment. Partial refunds (with deductions) are available up to 30 days. No refunds after 30 days." },
-  { q: "Is hostel accommodation available?", a: "While we don't have our own hostel, we assist students in finding suitable PG accommodations near our campus in Jayanagar." },
-];
-
 const Admissions = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    dob: "",
+    gender: "",
+    phone: "",
+    email: "",
+    education: "",
+    course: "",
+    fatherName: "",
+    motherName: "",
+    parentPhone: ""
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success("Application submitted successfully! We will contact you soon.");
+    setFormData({ name: "", dob: "", gender: "", phone: "", email: "", education: "", course: "", fatherName: "", motherName: "", parentPhone: "" });
+  };
+
   return (
     <div>
       <section className="gradient-hero py-20 lg:py-28">
@@ -49,7 +65,7 @@ const Admissions = () => {
       <section className="section-padding bg-background">
         <div className="container-custom">
           <SectionHeading badge="Process" title="How to Apply" subtitle="Follow these simple steps to join BMS Academy" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
             {steps.map((s, i) => (
               <motion.div key={s.step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="relative bg-card rounded-xl p-6 card-shadow border border-border/50 text-center">
@@ -61,6 +77,116 @@ const Admissions = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Application Form */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl mx-auto bg-card rounded-2xl p-8 sm:p-10 card-shadow border border-border/50 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+            
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <h3 className="font-display text-2xl font-bold text-foreground mb-2">Application Form</h3>
+                <p className="text-muted-foreground">Fill out the form below to initiate your admission process.</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-8 text-left">
+                {/* Student Details Section */}
+                <div>
+                  <h4 className="font-display font-semibold text-gold-dark mb-4 border-b border-border/50 pb-2">Student Details</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Full Name *</label>
+                      <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" placeholder="Enter student's full name" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Date of Birth *</label>
+                      <input required type="date" name="dob" value={formData.dob} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Gender *</label>
+                      <div className="relative">
+                        <select required name="gender" value={formData.gender} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all appearance-none cursor-pointer hover:border-gold/30">
+                          <option value="" disabled>Select Gender</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Other">Other</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                          <svg className="w-4 h-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Student Phone *</label>
+                      <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" placeholder="+91 0000000000" />
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Email Address *</label>
+                      <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" placeholder="student@example.com" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Academic Details Section */}
+                <div>
+                  <h4 className="font-display font-semibold text-gold-dark mb-4 border-b border-border/50 pb-2">Academic Information</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Current Education *</label>
+                      <input required type="text" name="education" value={formData.education} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" placeholder="e.g. 12th Std, B.Com, PUC" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Course Opted For *</label>
+                      <div className="relative">
+                        <select required name="course" value={formData.course} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all appearance-none cursor-pointer hover:border-gold/30">
+                          <option value="" disabled>Select a target course</option>
+                          {fees.map(f => <option key={f.course} value={f.course}>{f.course}</option>)}
+                        </select>
+                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                          <svg className="w-4 h-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Parent Details Section */}
+                <div>
+                  <h4 className="font-display font-semibold text-gold-dark mb-4 border-b border-border/50 pb-2">Parent / Guardian Details</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Father's Name *</label>
+                      <input required type="text" name="fatherName" value={formData.fatherName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" placeholder="Enter father's name" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Mother's Name *</label>
+                      <input required type="text" name="motherName" value={formData.motherName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" placeholder="Enter mother's name" />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">Parent's Phone *</label>
+                      <input required type="tel" name="parentPhone" value={formData.parentPhone} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border/50 bg-background/50 focus:bg-background focus:ring-2 focus:ring-gold/50 outline-none transition-all placeholder:text-muted-foreground/50 hover:border-gold/30" placeholder="+91 0000000000" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4">
+                  <button type="submit" className="w-full py-4 bg-gold text-accent-foreground font-semibold rounded-xl hover:bg-gold-dark hover:scale-[1.01] transition-all gold-shadow flex items-center justify-center gap-2">
+                    Submit Application <CheckCircle2 size={20} />
+                  </button>
+                  <p className="text-center text-xs text-muted-foreground mt-4">* All fields are mandatory</p>
+                </div>
+              </form>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -144,20 +270,11 @@ const Admissions = () => {
         </div>
       </section>
 
-      {/* FAQs */}
+      {/* AI Assistant replacing FAQs */}
       <section className="section-padding bg-secondary/50">
-        <div className="container-custom max-w-3xl">
-          <SectionHeading badge="FAQs" title="Frequently Asked Questions" />
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((f, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bg-card rounded-xl border border-border/50 px-6 card-shadow">
-                <AccordionTrigger className="text-left font-medium text-foreground hover:text-gold-dark py-5">
-                  <span className="flex items-center gap-3"><HelpCircle className="text-gold-dark shrink-0" size={18} /> {f.q}</span>
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">{f.a}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="container-custom max-w-4xl">
+          <SectionHeading badge="Support" title="Need Help?" subtitle="Chat with our intelligent assistant to find courses, understand topics, or get enrollment guidance." />
+          <AiAssistant />
         </div>
       </section>
 
