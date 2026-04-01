@@ -83,6 +83,32 @@ const About = () => {
         </div>
       </section>
 
+      {/* Director's Message */}
+      <section className="section-padding bg-background">
+        <div className="container-custom max-w-4xl">
+          <SectionHeading badge="Leadership" title="Director's Message" />
+          <div className="bg-card rounded-xl p-8 lg:p-12 card-shadow border border-border/50">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="w-48 h-48 rounded-xl flex items-center justify-center shrink-0">
+                <img src={Director} alt="Dr. Pankaj Choudhary" className="w-full h-full object-contain rounded-xl" />
+              </div>
+              <div>
+                <p className="text-muted-foreground leading-relaxed italic mb-4">
+                  "When we founded BMS Academy, our dream was simple — create an institution where students receive not just coaching, but true mentorship. Over the years, watching our students crack UPSC, top CA examinations, and secure seats in premier engineering and medical colleges has been our greatest reward."
+                </p>
+                <p className="text-muted-foreground leading-relaxed italic mb-6">
+                  "BMS Academy for Professional Courses is an institution which is focused to nurture and train students who are trying to make their career in Administrative Services, Chartered Accountancy, Company Secretary and Judicial services. The Academy aims at providing best coaching classes at affordable fees structure."
+                </p>
+                <div>
+                  <p className="font-display text-lg font-semibold text-foreground">Dr. Pankaj Choudhary</p>
+                  <p className="text-sm text-muted-foreground">Director, BMS Academy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Vision & Mission */}
       <section className="section-padding bg-secondary/50">
         <div className="container-custom grid md:grid-cols-2 gap-8">
@@ -134,32 +160,6 @@ const About = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Director's Message */}
-      <section className="section-padding bg-background">
-        <div className="container-custom max-w-4xl">
-          <SectionHeading badge="Leadership" title="Director's Message" />
-          <div className="bg-card rounded-xl p-8 lg:p-12 card-shadow border border-border/50">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="w-24 h-24 rounded-xl bg-primary flex items-center justify-center shrink-0">
-                <img src={Director} alt="Dr. Pankaj Choudhary" className="w-full h-full object-cover rounded-xl" />
-              </div>
-              <div>
-                <p className="text-muted-foreground leading-relaxed italic mb-4">
-                  "When we founded BMS Academy, our dream was simple — create an institution where students receive not just coaching, but true mentorship. Over the years, watching our students crack UPSC, top CA examinations, and secure seats in premier engineering and medical colleges has been our greatest reward."
-                </p>
-                <p className="text-muted-foreground leading-relaxed italic mb-6">
-                  "Education is the most powerful tool to transform lives, and at BMS Academy, we remain committed to making world-class coaching accessible to every deserving student in Bangalore and beyond."
-                </p>
-                <div>
-                  <p className="font-display text-lg font-semibold text-foreground">Dr. Pankaj Choudhary</p>
-                  <p className="text-sm text-muted-foreground">Director, BMS Academy</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
