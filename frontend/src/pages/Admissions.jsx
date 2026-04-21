@@ -43,10 +43,27 @@ const Admissions = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.success("Application submitted successfully! We will contact you soon.");
-    setFormData({ name: "", dob: "", gender: "", phone: "", email: "", education: "", course: "", fatherName: "", motherName: "", parentPhone: "" });
+    try {
+      const response = await fetch('/api/apply', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.error || 'Failed to submit application');
+      }
+
+      toast.success("Application submitted successfully! We will contact you soon.");
+      setFormData({ name: "", dob: "", gender: "", phone: "", email: "", education: "", course: "", fatherName: "", motherName: "", parentPhone: "" });
+    } catch (error) {
+      toast.error(error.message || "An error occurred. Please try again later.");
+    }
   };
 
   return (

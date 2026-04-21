@@ -7,10 +7,24 @@ import { toast } from "sonner";
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", course: "", message: "" });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.success("Thank you! We'll get back to you within 24 hours.");
-    setForm({ name: "", email: "", phone: "", course: "", message: "" });
+    try {
+      const response = await fetch('/api/contact-forms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+      
+      if (!response.ok) throw new Error('Failed to submit');
+      
+      toast.success("Thank you! We'll get back to you within 24 hours.");
+      setForm({ name: "", email: "", phone: "", course: "", message: "" });
+    } catch (error) {
+      toast.error("An error occurred. Please try again later.");
+    }
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
