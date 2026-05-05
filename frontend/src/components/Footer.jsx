@@ -1,0 +1,103 @@
+import { Link } from "react-router-dom";
+import { GraduationCap, Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import logoImg from "@/assets/logo.png";
+const Footer = () => {
+  return (
+    <footer className="bg-primary text-primary-foreground">
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-2.5 mb-4">
+              <img src={logoImg} alt="BMS Academy" className="h-20 w-auto" />
+            </div>
+            <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
+              BMS academy for Civil Services, Commerce, and Science competitive examinations. Shaping careers..
+            </p>
+            <div className="flex gap-3">
+              {[Facebook, Instagram, Youtube, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-9 h-9 rounded-lg bg-primary-foreground/10 flex items-center justify-center hover:bg-gold transition-colors">
+                  <Icon size={16} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-display text-lg font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2.5">
+              {[
+                { label: "About Us", path: "/about" },
+                { label: "Courses", path: "/courses" },
+                { label: "Admissions", path: "/admissions" },
+                { label: "Results", path: "/results" },                { label: "Sister Institutions", path: "/sister-institutions" },                { label: "Contact", path: "/contact" },
+              ].map((link) => (
+                <li key={link.path}>
+                  <Link to={link.path} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })} className="text-sm text-primary-foreground/70 hover:text-gold transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Programs */}
+          <div>
+            <h4 className="font-display text-lg font-semibold mb-4">Our Programs</h4>
+            <ul className="space-y-2.5">
+              {[
+                { label: "UPSC Coaching", path: "/courses/upsc" },
+                { label: "CA / CS / CMA", path: "/courses/professional-courses" },
+                { label: "IIT-JEE Coaching", path: "/courses/iit-jee" },
+                { label: "NEET Coaching", path: "/courses/neet" },
+                { label: "KCET Coaching", path: "/courses/kcet" },
+              ].map((item) => (
+                <li key={item.path}>
+                  <Link to={item.path} onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })} className="text-sm text-primary-foreground/70 hover:text-gold transition-colors">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-display text-lg font-semibold mb-4">Contact Us</h4>
+            <ul className="space-y-3">
+              <li className="flex gap-3 text-sm text-primary-foreground/70">
+                <MapPin size={18} className="text-gold shrink-0 mt-0.5" />
+                <span>BMS College of Engineering Campus, Bull Temple Rd, Basavanagudi, Bengaluru, Karnataka 560004</span>
+              </li>
+              <li className="flex gap-3 text-sm text-primary-foreground/70">
+                <Phone size={18} className="text-gold shrink-0" />
+                <span>+91 8971736008</span>
+              </li>
+              <li className="flex gap-3 text-sm text-primary-foreground/70">
+                <Mail size={18} className="text-gold shrink-0" />
+                <span>info@bmsacademy.in</span>
+              </li>
+            </ul>
+            <div className="mt-4 p-3 rounded-lg bg-primary-foreground/5 text-sm text-primary-foreground/60">
+              <strong className="text-primary-foreground/80">Office Hours:</strong><br />
+              Mon – Sat: 8:00 AM – 8:00 PM<br />
+              Sun: 9:00 AM – 1:00 PM
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="border-t border-primary-foreground/10 py-6">
+        <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/50">
+          <p>© 2026 BMS Academy for Professional Courses. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link to="/privacy-policy" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })} className="hover:text-primary-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })} className="hover:text-primary-foreground transition-colors">Terms of Service</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
